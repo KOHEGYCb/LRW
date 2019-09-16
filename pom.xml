@@ -7,7 +7,8 @@
     <packaging>pom</packaging>
     <modules>
         <module>DBConnection</module>
-    </modules>
+    <module>web</module>
+  </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
