@@ -72,7 +72,7 @@ public class Strings {
             str += "sql" + sqlVar.toUpperCase().charAt(0) + sqlVar.substring(1) + ", ";
         }
         str = str.substring(0, str.length() - 2);
-        str += "\n";
+        str += "\n\n";
 
         return str;
     }
