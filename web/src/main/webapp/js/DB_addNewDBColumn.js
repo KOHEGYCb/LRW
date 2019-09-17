@@ -1,35 +1,41 @@
+var newInput = "" +
+        "<div class=''>" +
+        "<input type='text' value= '<VALUE>' class='col' name='col<ITER>' id='col<ITER>' placeholder='Column name <ITER1>' required/>" +
+        "<img src='img/cancel.svg' alt='X' onclick='delCol(\"col<ITER>\")' width='32' />" +
+        "</div>";
+
 var btn_addSQLCol = document.getElementById('addQSLCol');
 btn_addSQLCol.addEventListener('click', addSQLCol, false);
 
 function addSQLCol() {
     var block = document.getElementById('sqlColomnBlock');
-    var colunt = 1;
-    
-    var inputs = [];
-//    block.innerHTML = "";
-    var str;
-    for (var i = 0; i < document.getElementsByClassName('col').length; i++) {
-        
-        
-        str = "<input \
-            type='text' \
-            value=  '"+document.getElementById('col'+i).value+"' \
-            class='col' \
-            name='col"+i+"' \
-            id='col"+i+"'\
-            placeholder='Column name "+(i+1)+"'\
-            />";
-        console.log(str);
-        inputs[i] = str;
-    }  
-    block.innerHTML = "";
-    for (var i = 0; i < inputs.length; i++) {
-        block.innerHTML += inputs[i];
-    }
-    
-    
-    
-    block.innerHTML += "<input type='text' value='' class='col' name='col"+block.childElementCount/colunt+"' id='col"+block.childElementCount/colunt+"'placeholder='Column name "+(block.childElementCount/colunt+1)+"'/>";
-    var a = document.getElementById('kolCols');
-    a.value = block.childElementCount/colunt-1;
+    var count = document.getElementsByClassName('col').length;
+
+    var str = "";
+    for (var i = 0; i < count; i++)
+        str += setNewInput(document.getElementById('col' + i).value, i);
+    str += setNewInput("", count);
+    block.innerHTML = str;
+    document.getElementById('kolCols').value = count;
+}
+
+function delCol(a) {
+    document.getElementById(a).parentElement.outerHTML = "";
+    var block = document.getElementById('sqlColomnBlock');
+    var count = document.getElementsByClassName('col').length;
+
+    var str = "";
+    for (var i = 0; i < count; i++)
+        str += setNewInput(document.getElementsByClassName('col')[i].value, i);
+    block.innerHTML = str;
+    document.getElementById('kolCols').value = count;
+}
+
+function setNewInput(value, iter) {
+    var str = "";
+    str += newInput;
+    str = str.replace(new RegExp("<VALUE>", 'g'), value);
+    str = str.replace(new RegExp("<ITER>", 'g'), iter);
+    str = str.replace(new RegExp("<ITER1>", 'g'), iter + 1);
+    return str;
 }

@@ -16,14 +16,14 @@
     <body>
         <form action="DB" method="get" class="db_form">
             <!--sub name-->
-            <input type="text" name="subName" value="" placeholder="Sub name"/>
+            <input type="text" name="subName" value="" placeholder="Sub name" required/>
             <!--<br/>-->
             <!--findvar-->
-            <input type="text" name="findVar" placeholder="Question name"/>
+            <input type="text" name="findVar" placeholder="Question name" required/>
             <!--table name-->
-            <input type="text" name="tabName" placeholder="SQL table"/>
+            <input type="text" name="tabName" placeholder="SQL table" required/>
             <!--sql column-->
-            <input type="text" name="sqlColumn" placeholder="SQL col to find"/>
+            <input type="text" name="sqlColumn" placeholder="SQL col to find" required/>
             <input type="number" name="kolCols" id="kolCols" value="-1" style="display: none"/>
             <div id="sqlColomnBlock">
 
@@ -31,7 +31,7 @@
             <input type="button" id="addQSLCol" value="add column"/>
             <input type="submit"/>
         </form>
-
+        
         <div class="code">
             <pre>
 ${code}</pre>
