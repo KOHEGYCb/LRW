@@ -43,7 +43,32 @@ input[type="text"].col {
     /*float: left;*/
 }
 
+.db_form select.selectQuestion{
+    width: 300px;
+    display: inline-block;
+}
 
+.db_form .QuestionText{
+    
+}
+.db_form .QuestionText input,
+.db_form .QuestionText select
+{
+    width: 45%;
+    display: inline-block;
+}
+
+
+.db_form img{
+    /*outline: 1px solid red;*/
+    position: relative;
+    top: 10px;
+}
+.db_form .colBlk{
+    margin: 0;
+    padding: 0;
+    height: 55px;
+}
 
 .db_form input[type="button"], 
 .db_form input[type="submit"]{
