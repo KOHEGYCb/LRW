@@ -41,7 +41,7 @@ function updateSelectColQuestions(id = "-1") {
     var SQLCols = document.getElementsByClassName("col");
     var optStr = "";
     if (id !== "-1") {
-        id = parseInt(id.substring(3)) + 1;
+        id = parseInt(id.substring(3));
         console.log("id: " + id);
     }
     for (var i = 0; i < SQLCols.length; i++) {
@@ -56,14 +56,22 @@ function updateSelectColQuestions(id = "-1") {
         console.log("n: " + n);
         var v = selects[i].value;
         console.log("v: " + v);
-        
+
         selects[i].innerHTML = optStr;
-        
-        if (n === id){
+
+        if (n === id) {
             selects[i].selectedIndex = -1;
+        } else {
+            if ((id === "-1") || (n < id)) {
+                selects[i].selectedIndex = n;
+            } else {
+                if (n > id) {
+                    selects[i].selectedIndex = n - 1;
+                } 
+            }
         }
-        
-        
+
+
 //        for (var i = 0; i < SQLCols.length; i++) {
 //            if (SQLCols[i].value.length === 0) {
 //                v = 0;
@@ -83,6 +91,8 @@ function updateColAmount() {
 
 function initSQLColEventListners() {
     for (var i = 0; i < document.getElementsByClassName('col').length; i++) {
-        document.getElementById("col" + i).addEventListener('keyup', updateSelectColQuestions, false);
+        document.getElementById("col" + i).addEventListener('keyup', function () {
+            updateSelectColQuestions()
+        }, false);
     }
 }
