@@ -40,13 +40,21 @@
             <hr/>
 
             <div id="Questions">
+                <input type="number" name="kolQuestions" id="kolQuestions" value="-1" style="display: none"/>
                 <div id="QuestionsBlock">
-                    <div class="QuestionText">
-                        <input type="text" name="questionI" value="" placeholder="text question" required=""/>
+                    <div class="Question Text">
+                        <p class="questionType">Text</p>
+                        <input type="text" name="questionI" value="" placeholder="text question" required/>
                         <select class="selectCol">
-                            <option>ColI</option>
-                            <option>ColII</option>
-                            <option>ColIII</option>
+                            
+                        </select>
+                        <img src="img/cancel.svg" width="32" alt="X"/>
+                    </div>
+                    <div class="Question Numeric">
+                        <p class="questionType">Numeric</p>
+                        <input type="text" name="questionI" value="" placeholder="text question" required/>
+                        <select class="selectCol">
+                            
                         </select>
                         <img src="img/cancel.svg" width="32" alt="X"/>
                     </div>
@@ -66,7 +74,7 @@
         <div class="code">
             <pre>${code}</pre>
         </div>
-        
+
         <script src="js/HTMLPatterns.js" type="text/javascript"></script>
         <script src="js/DB_addNewDBColumn.js" type="text/javascript"></script>
         <script src="js/DB_addQuestion.js" type="text/javascript"></script>
