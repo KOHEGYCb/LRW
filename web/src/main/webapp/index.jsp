@@ -15,46 +15,62 @@
     </head>
     <body>
         <form action="DB" method="get" class="db_form">
-            <!--sub name-->
-            <input type="text" name="subName" value="" placeholder="Sub name" required/>
-            <!--<br/>-->
-            <!--findvar-->
-            <input type="text" name="findVar" placeholder="Question name" required/>
-            <!--table name-->
-            <input type="text" name="tabName" placeholder="SQL table" required/>
-            <!--sql column-->
-            <input type="text" name="sqlColumn" placeholder="SQL col to find" required/>
-            <hr>
-            <input type="number" name="kolCols" id="kolCols" value="-1" style="display: none"/>
-            <div id="sqlColomnBlock">
+            <div id="mainPart" >
+                <!--sub name-->
+                <input type="text" name="subName" value="" placeholder="Sub name" required/>
+                <!--<br/>-->
+                <!--findvar-->
+                <input type="text" name="findVar" placeholder="Question name" required/>
+                <!--table name-->
+                <input type="text" name="tabName" placeholder="SQL table" required/>
+                <!--sql column-->
+                <input type="text" name="sqlColumn" placeholder="SQL col to find" required/>
+            </div>
 
-            </div>
-            <input type="button" id="addQSLCol" value="add column"/>
-            <br>
-            <hr/>
-            <div id="questions">
-                <div class="QuestionText">
-                    <input type="text" name="questionI" value="" placeholder="text question" required=""/>
-                    <select class="selectCol">
-                        <option>ColI</option>
-                    </select>
-                    <img src="img/cancel.svg" width="32" alt="X"/>
-                </div>
-            </div>
-            <select id="selectQuestion" class="selectQuestion">
-                <option>Numeric</option>
-                <option>Text</option>
-            </select>
-            <input type="button" id="addQuestion" value="add Question"/>
             <hr>
+
+            <div id="SQLColumns" >
+                <input type="number" name="kolCols" id="kolCols" value="-1" style="display: none"/>
+                <div id="sqlColomnBlock" >
+
+                </div>
+                <input type="button" id="addQSLCol" value="add column"/>
+            </div>
+
+            <hr/>
+
+            <div id="Questions">
+                <div id="QuestionsBlock">
+                    <div class="QuestionText">
+                        <input type="text" name="questionI" value="" placeholder="text question" required=""/>
+                        <select class="selectCol">
+                            <option>ColI</option>
+                            <option>ColII</option>
+                            <option>ColIII</option>
+                        </select>
+                        <img src="img/cancel.svg" width="32" alt="X"/>
+                    </div>
+                </div>
+                <select id="selectQuestion" class="selectQuestion">
+                    <option>Numeric</option>
+                    <option>Text</option>
+                </select>
+                <input type="button" id="addQuestion" value="add Question"/>
+            </div>
+
+            <hr>
+
             <input type="submit"/>
         </form>
 
         <div class="code">
             <pre>${code}</pre>
         </div>
-        <script src="js/DB_addNewDBColumn.js"></script>
-        <script src="js/DB_addQuestion.js"></script>
+        
+        <script src="js/HTMLPatterns.js" type="text/javascript"></script>
+        <script src="js/DB_addNewDBColumn.js" type="text/javascript"></script>
+        <script src="js/DB_addQuestion.js" type="text/javascript"></script>
+        <script src="js/initEventListners.js" type="text/javascript"></script>
 
     </body>
 </html>
