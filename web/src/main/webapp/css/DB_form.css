@@ -43,22 +43,6 @@ input[type="text"].col {
     /*float: left;*/
 }
 
-.db_form select.selectQuestion{
-    width: 300px;
-    display: inline-block;
-}
-
-.db_form .QuestionText{
-    
-}
-.db_form .QuestionText input,
-.db_form .QuestionText select
-{
-    width: 45%;
-    display: inline-block;
-}
-
-
 .db_form img{
     /*outline: 1px solid red;*/
     position: relative;
@@ -87,4 +71,35 @@ input[type="text"].col {
 .db_form input[type="button"]:hover, 
 .db_form input[type="submit"]:hover {
     background-color:#34CACA;
+}
+
+
+/*BLOCK QUESTIONS*/
+
+.db_form div#Questions{
+
+}
+
+.db_form div#Questions div#QuestionsBlock{
+
+}
+
+.db_form div#Questions div#QuestionsBlock div.QuestionText{
+
+}
+
+.db_form div#Questions div#QuestionsBlock div.QuestionText input,
+.db_form div#Questions div#QuestionsBlock div.QuestionText select
+{
+    width: 45%;
+    display: inline-block;
+}
+
+.db_form div#Questions div#QuestionsBlock div.QuestionText select.selectCol{
+
+}
+
+.db_form div#Questions select.selectQuestion{
+    width: 300px;
+    display: inline-block;
 }
