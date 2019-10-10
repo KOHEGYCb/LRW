@@ -77,6 +77,7 @@ function initSQLColEventListners() {
     for (var i = 0; i < document.getElementsByClassName('col').length; i++) {
         document.getElementById("col" + i).addEventListener('keyup', function () {
             updateSelectColQuestions();
+            questions.updateValues();
         }, false);
         document.getElementById('col' + i).nextSibling.addEventListener('click', function (e) {
             delSQLCol(e.target.id);

@@ -42,23 +42,20 @@
             <div id="Questions">
                 <input type="number" name="kolQuestions" id="kolQuestions" value="-1" style="display: none"/>
                 <div id="QuestionsBlock">
-                    <!--                    <div class="Question Text">
-                                            <p class="questionType">Text</p>
-                                            <input type="text" name="questionI" value="" placeholder="text question" required/>
-                                            <select class="selectCol">
+                
                     
-                                            </select>
-                                            <img src="img/cancel.svg" width="32" alt="X"/>
-                                        </div>
-                                        <div class="Question Numeric">
-                                            <p class="questionType">Numeric</p>
-                                            <input type="text" name="questionI" value="" placeholder="text question" required/>
-                                            <select class="selectCol">
-                    
-                                            </select>
-                                            <img src="img/cancel.svg" width="32" alt="X"/>
-                                        </div>-->
+                    <div class='Question SinglePunch'>
+                        <p class='questionType'>Single Punch</p>
+                        <input type='text' name='Q<ITER>' id='Q<ITER>' value='<Q_NAME>' placeholder='Question Name' required/>
+                        <input id='addStub<ITER>' type='button' value='Add Stub'/>
+                        <div class="stubs">
+                            
+                        </div>
+                    </div>
+                
+                
                 </div>
+                <br/>
                 <select id="selectQuestion" class="selectQuestion">
                     <option>Numeric</option>
                     <option>Text</option>
