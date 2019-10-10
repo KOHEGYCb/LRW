@@ -6,11 +6,9 @@
 package by.dmitry.web.servlets;
 
 import by.dmitry.lrw_dbconnection.connecttodb.Strings;
-import java.io.File;
+import by.dmitry.web.constants.Parameters;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Enumeration;
-import java.util.Map;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,8 +19,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Dmitry
  */
-@WebServlet(name = "DB", urlPatterns = {"/DB"})
-public class DB extends HttpServlet {
+@WebServlet("/DB/*")
+//@WebServlet(name = "DB", urlPatterns = {"/DB/*"})
+public class DB extends ManagerServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,24 +35,20 @@ public class DB extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            String subName = "SubName", findVar = "FindVar", tabName = "TableName", sqlFindColumn = "SQLColumn";
-            String [] sqlVarColumns = {"var1", "var2"};
-            
-            Strings s = new Strings(subName, findVar, sqlVarColumns, tabName, sqlFindColumn);
-            out.print("<pre>"+s.getSubEmpty()+"</pre>");
+        String subName = request.getParameter(Parameters.SUB_NAME);
+        String findVar = request.getParameter(Parameters.FIND_VAR);
+        String tabName = request.getParameter(Parameters.TABLE_NAME);
+        String sqlFindColumn = request.getParameter(Parameters.SQL_COLUMN);
+        int amountCols = Integer.parseInt(request.getParameter(Parameters.AMOUNT_COLS)) + 1;
+        String[] sqlVarColumns = new String[amountCols];
+        for (int i = 0; i < amountCols; i++) {
+            sqlVarColumns[i] = request.getParameter(Parameters.COL_N + i);
         }
+        Strings s = new Strings(subName, findVar, sqlVarColumns, tabName, sqlFindColumn);
         
-        Map m = request.getParameterMap();
-        Enumeration e = request.getAttributeNames();
-        System.out.println(m.size());
-        for (int i = 0; i < m.size(); i++){
-            System.out.println(m.get(i));
-        }
+        request.setAttribute("code", s.getSubEmpty());
         
-        File file = new File("file.txtxtxt");
-        file.createNewFile();
-        System.out.println(file.getAbsolutePath());
+        forward("/index.jsp", request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -17,7 +17,11 @@ public class service {
         FileInputStream fis = null;
         try {
             fis = new FileInputStream(Constants.SDB_FILE_NAME);
-            str = new String(fis.readAllBytes());
+            int ch = fis.read();
+            while (ch!=-1){
+                str += (char) ch;
+                ch = fis.read();
+            }
         } catch (FileNotFoundException ex) {
             Logger.getLogger(service.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException ex) {
