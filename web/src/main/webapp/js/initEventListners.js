@@ -1,3 +1,5 @@
+/* global addQuestion, addSQLCol */
+
 var btn_addSQLCol = document.getElementById('addQSLCol');
 btn_addSQLCol.addEventListener('click', addSQLCol, false);
 
