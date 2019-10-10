@@ -23,6 +23,7 @@ function delSQLCol(a) {
     for (var i = 0; i < count; i++)
         str += setNewInput(document.getElementsByClassName('col')[i].value, i);
     block.innerHTML = str;
+    initSQLColEventListners();
     updateColAmount();
     updateSelectColQuestions(a);
 }
@@ -42,7 +43,6 @@ function updateSelectColQuestions(id = "-1") {
     var optStr = "";
     if (id !== "-1") {
         id = parseInt(id.substring(3));
-        console.log("id: " + id);
     }
     for (var i = 0; i < SQLCols.length; i++) {
         if (SQLCols[i].value === "") {
@@ -53,12 +53,8 @@ function updateSelectColQuestions(id = "-1") {
     }
     for (var i = 0; i < selects.length; i++) {
         var n = selects[i].selectedIndex;
-        console.log("n: " + n);
         var v = selects[i].value;
-        console.log("v: " + v);
-
         selects[i].innerHTML = optStr;
-
         if (n === id) {
             selects[i].selectedIndex = -1;
         } else {
@@ -67,21 +63,9 @@ function updateSelectColQuestions(id = "-1") {
             } else {
                 if (n > id) {
                     selects[i].selectedIndex = n - 1;
-                } 
+                }
             }
         }
-
-
-//        for (var i = 0; i < SQLCols.length; i++) {
-//            if (SQLCols[i].value.length === 0) {
-//                v = 0;
-//            }
-//
-//            if (v.length > SQLCols[i].value.length) {
-//
-//            }
-//            console.log("v: " + v.length + " c: " + SQLCols[i].value.length);
-//        }
 }
 }
 
@@ -92,7 +76,10 @@ function updateColAmount() {
 function initSQLColEventListners() {
     for (var i = 0; i < document.getElementsByClassName('col').length; i++) {
         document.getElementById("col" + i).addEventListener('keyup', function () {
-            updateSelectColQuestions()
+            updateSelectColQuestions();
+        }, false);
+        document.getElementById('col' + i).nextSibling.addEventListener('click', function (e) {
+            delSQLCol(e.target.id);
         }, false);
     }
 }
