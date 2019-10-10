@@ -6,7 +6,7 @@ var newInput = "" +
 var newQuestionText = "" +
         "<div class='Question Text'>" +
         "<p class='questionType'>Text</p>" +
-        "<input type='text' name='question<ITER>' id='question<ITER>' value='<VALUE>' placeholder='text question' required/>" +
+        "<input type='text' name='question<ITER>' id='question<ITER>' value='<Q_NAME>' placeholder='Question Name' required/>" +
         "<select class='selectCol'>" +
         "</select>" +
         "<img src='img/cancel.svg' alt='X' id='question<ITER>' width='32'/>" +
@@ -14,7 +14,7 @@ var newQuestionText = "" +
 var newQuestionNumeric = "" +
         "<div class='Question Numeric'>" +
         "<p class='questionType'>Numeric</p>" +
-        "<input type='text' name='question<ITER>' id='question<ITER>' value='<VALUE>' placeholder='text question' required/>" +
+        "<input type='text' name='question<ITER>' id='question<ITER>' value='<Q_NAME>' placeholder='Question Name' required/>" +
         "<select class='selectCol'>" +
         "</select>" +
         "<img src='img/cancel.svg' alt='X' id='question<ITER>' width='32'/>" +

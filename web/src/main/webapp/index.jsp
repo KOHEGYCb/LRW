@@ -42,22 +42,22 @@
             <div id="Questions">
                 <input type="number" name="kolQuestions" id="kolQuestions" value="-1" style="display: none"/>
                 <div id="QuestionsBlock">
-                    <div class="Question Text">
-                        <p class="questionType">Text</p>
-                        <input type="text" name="questionI" value="" placeholder="text question" required/>
-                        <select class="selectCol">
-                            
-                        </select>
-                        <img src="img/cancel.svg" width="32" alt="X"/>
-                    </div>
-                    <div class="Question Numeric">
-                        <p class="questionType">Numeric</p>
-                        <input type="text" name="questionI" value="" placeholder="text question" required/>
-                        <select class="selectCol">
-                            
-                        </select>
-                        <img src="img/cancel.svg" width="32" alt="X"/>
-                    </div>
+                    <!--                    <div class="Question Text">
+                                            <p class="questionType">Text</p>
+                                            <input type="text" name="questionI" value="" placeholder="text question" required/>
+                                            <select class="selectCol">
+                    
+                                            </select>
+                                            <img src="img/cancel.svg" width="32" alt="X"/>
+                                        </div>
+                                        <div class="Question Numeric">
+                                            <p class="questionType">Numeric</p>
+                                            <input type="text" name="questionI" value="" placeholder="text question" required/>
+                                            <select class="selectCol">
+                    
+                                            </select>
+                                            <img src="img/cancel.svg" width="32" alt="X"/>
+                                        </div>-->
                 </div>
                 <select id="selectQuestion" class="selectQuestion">
                     <option>Numeric</option>
@@ -75,10 +75,15 @@
             <pre>${code}</pre>
         </div>
 
+        <script src="js/CQuestion.js" type="text/javascript"></script>
+        <script src="js/CQuestions.js" type="text/javascript"></script>
+        <script src="js/CQNumeric.js" type="text/javascript"></script>
+        <script src="js/CQText.js" type="text/javascript"></script>
         <script src="js/HTMLPatterns.js" type="text/javascript"></script>
         <script src="js/DB_addNewDBColumn.js" type="text/javascript"></script>
         <script src="js/DB_addQuestion.js" type="text/javascript"></script>
-        <script src="js/initEventListners.js" type="text/javascript"></script>
 
+        <script src="js/initGlobalVars.js" type="text/javascript"></script>
+        <script src="js/initEventListners.js" type="text/javascript"></script>
     </body>
 </html>
